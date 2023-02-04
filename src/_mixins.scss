@@ -1,0 +1,20 @@
+@mixin flex($display, $just, $align){
+    display: $display;
+    justify-content: $just;
+    align-items: $align;
+}
+
+@mixin font($weight, $size, $line, $color){
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line;
+    color: $color;
+}
+
+@mixin separator($w, $h, $back, $border-rad, $margin){
+    width: $w;
+    height: $h;
+    background: $back;
+    border-radius: $border-rad;
+    margin: $margin;
+}

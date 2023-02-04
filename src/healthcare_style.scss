@@ -1,0 +1,556 @@
+@import "mixins";
+@import "variables";
+@import "breakpoints";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    body{
+        font-family: 'Mulish', sans-serif;
+        font-style: normal;
+        mix-blend-mode: normal;
+        height: 100vh;
+        width: 100%; 
+        
+        .wrapper{
+            background: #FFFFFF;
+            max-width: 1200px;
+            margin: auto;
+            @include for-desktop-up{
+                width: 100%;
+                margin: 0 10%;
+            }
+            @include for-tablet-landscape-up{
+                width: 100%;
+                margin: 0 3%;
+            }
+            @include for-big-desktop{
+                width: 100%;
+                margin: 0 10%;
+            }
+            @include for-phone-only{
+                width: 100%;
+                margin: 0 5%;
+            }
+                      
+
+            header{
+                .wrapper-header{
+                    padding: 56px 0 80px;
+                    @include flex($display, $just, $align);
+                    
+
+                    nav{
+                        min-width: 40%;
+                        @include for-big-desktop{
+                            min-width: 50%;
+                        }
+                        @include for-tablet-landscape-up{
+                            display: none;
+                        }
+                        ul{ 
+                            @include flex($display, $just, $align);
+                            li{
+                                list-style: none;
+                                a{
+                                    text-decoration: none;
+                                    @include font($weight, $size, $line, $color: #1F1534);
+                                    opacity: 0.5;
+                                    margin-right: 20px;
+                                    @include for-big-desktop{
+                                        margin-right: 30px;
+                                    }
+                                }
+                                .home{
+                                    font-weight: 700;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                    .menu-icon{
+                        display: none;
+                        @include for-tablet-landscape-up{
+                            display: block;
+                            margin-left: 450px;
+                            margin-right: 20px;
+                        }
+                        @include for-phone-only{
+                            display: block;
+                            margin-left: 300px;
+                        }
+                    }
+                }
+            }
+
+            main{
+                .wrapper-vh{
+                    @include flex($display, $just, $align);
+                    gap: 65px;
+                    margin-bottom: 190px;
+                    @include for-tablet-landscape-up{
+                        flex-wrap: wrap;
+                        $just: center;
+                        text-align: center;
+                    }
+
+                    .text-vh{                       
+                        h1{
+                            @include font($weight: 700, $size: 48px, $line: 56px,$color:#000000);                      
+                            margin-bottom: 35px;
+                        }
+                        p{
+                            @include font($weight: 300, $size: 21px, $line: 32px,$color:#7D7987); 
+                            margin-bottom: 35px;
+                            @include for-tablet-landscape-up{
+                                margin: 0 50px 35px;
+                            } 
+                        }
+                        .consult-button{
+                            @include font($weight: 700, $size: 18px, $line: 60px,$color: #FFFFFF);                      
+                            text-decoration: none;
+                            padding: 20px 40px 17px 40px;
+                            background: #458FF6;
+                            border-radius: 55px;
+                        }
+                    }
+                    img{
+                        @include for-tablet-landscape-up{
+                            width: 90%;                          
+                        }
+                    }
+                }
+
+                .wrapper-services{
+                    text-align: center;
+                    padding: 0 20px;
+                    margin-bottom: 221px;
+
+                    h2{
+                        @include font($weight: 700, $size: 36px, $line: 56px,$color: #000000); 
+                    }
+                    .separator{
+                        @include separator($w, $h, $back, $border-rad, $margin: 26px auto 33px);                        
+                    }
+                    p{
+                        width: 80%;
+                        margin: 0 auto 80px;
+                        @include font($weight: 300, $size: 18px, $line: 30px,$color:#7D7987); 
+                    }
+                    .flex-cards{
+                        @include flex($display, $just, $align: flex-start);    
+                        flex-wrap: wrap;                 
+                        text-align: left;
+                        margin-bottom: 35px;
+                        position: relative;
+                        z-index: 2;
+
+                        .card-item{
+                            padding: 54px 20px 47px 37px;
+                            max-width: calc(33% - 35px);
+                            height: 354px;
+                            margin-bottom: 37px;
+                            background: #FFFFFF;
+                            box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+                            border-radius: 20px;
+                            z-index: 2;
+                            @include for-tablet-landscape-up{
+                                max-width: 100%;
+                                height: max-content;
+                                margin-bottom: 15px;
+                            }                           
+
+                            h3{
+                                @include font($weight: 700, $size: 24px, $line: 56px,$color:#000000);                             margin: 23px 0 10px;
+                            }
+                            .consult{
+                                margin: 13px 0 10px;
+                            }
+                            .emerge{
+                                margin: 43px 0 10px;
+                            }
+                            p{
+                                margin: 0;
+                                @include font($weight: 300, $size: 16px, $line: 28px,$color:#7D7987);
+                            }
+                            
+                        }
+                        .decor-cloud{
+                            position: absolute;
+                            left: -27%;
+                            bottom: 10%;
+                            opacity: 0.8;                           
+                            z-index: 1;
+                            @include for-tablet-landscape-up{
+                                display: none;
+                            }
+                        }
+                        .square-0{
+                            position: absolute;
+                            right: -5%;
+                            bottom: 48%;
+                            z-index: 1;
+                            @include for-tablet-landscape-up{
+                                display: none;
+                            }
+                        }
+                    }
+                    .learn-more{
+                        @include font($weight: 700, $size: 18px, $line: 60px,$color:#458FF6);                       
+                        text-decoration: none;
+                        border: 1.4px solid #458FF6;
+                        border-radius: 55px;
+                        padding: 20px 51px;
+                        @include for-tablet-landscape-up{
+                            padding: 15px 30px;
+                        }
+                        @include for-phone-only{
+                            padding: 7px 15px;
+                        }
+                    }
+                    
+                }
+
+                .wrapper-providers{
+                    @include flex($display, $just, $align);
+                    gap: 82px;
+                    margin-bottom: 229px;
+                    @include for-tablet-landscape-up{
+                        flex-wrap: wrap;
+                        $just: center;
+                        text-align: center;
+                    }
+                    img{
+                        @include for-tablet-landscape-up{
+                            width: 90%;                          
+                        }
+                    }
+                    .text-providers{
+                        padding-right: 70px;
+
+                        h2{
+                            @include font($weight: 700, $size: 36px, $line: 56px,$color:#000000);
+                        }
+                        .separator{
+                            @include separator($w, $h, $back, $border-rad, $margin: 26px 0 31px);
+                            @include for-tablet-landscape-up{
+                                margin: 15px auto 20px;
+                            }
+                        }
+                        p{
+                            @include font($weight: 300, $size: 18px, $line: 30px,$color:#7D7987);
+                            margin-bottom: 37px;
+                        }
+                        .learn-button{
+                            @include font($weight: 700, $size: 18px, $line: 60px,$color:#458FF6);
+                            text-decoration: none;
+                            border: 1.4px solid #458FF6;
+                            border-radius: 55px;
+                            padding: 20px 51px;
+                            @include for-tablet-landscape-up{
+                                padding: 15px 30px;
+                            }
+                            @include for-phone-only{
+                                padding: 7px 15px;
+                            }
+                        }
+                    }
+                }
+
+                .wrapper-mobile-apps{
+                    @include flex($display, $just, $align);
+                    gap: 45px;
+                    margin-bottom: 251px;
+                    @include for-tablet-landscape-up{
+                        flex-wrap: wrap;
+                        $just: center;
+                        text-align: center;
+                    }
+
+                    .text-mobile-apps{
+                        padding-right: 128px;
+                        h2{
+                            @include font($weight: 700, $size: 36px, $line: 48px,$color:#000000);                     
+                        }
+                        .separator{
+                            @include separator($w, $h, $back, $border-rad, $margin);
+                            @include for-tablet-landscape-up{
+                                margin: 15px auto 20px;
+                            }
+                        }
+                        p{
+                            @include font($weight: 300, $size: 18px, $line: 30px,$color:#7D7987); 
+                            margin-bottom: 40px;
+                        }
+                        .download-button{
+                            @include font($weight: 700, $size: 18px, $line: 60px,$color:#458FF6); 
+                            text-decoration: none;
+                            border: 1.4px solid #458FF6;
+                            border-radius: 55px;
+                            padding: 21px 43px;
+                            @include for-tablet-landscape-up{
+                                padding: 15px 30px;
+                            }
+                            @include for-phone-only{
+                                padding: 7px 15px;
+                            }
+                            
+                            .arrow{
+                                margin-left: 15px;
+                                @include for-tablet-landscape-up{
+                                    margin-left: 10px;
+                                }
+                                @include for-phone-only{
+                                    margin-left: 5px;
+                                }
+                            }
+                        }
+                        
+                    }
+                    .image-apps{
+                        @include for-tablet-landscape-up{
+                            width: 90%;                          
+                        }
+                    }               
+                }
+
+                .wrapper-feedback{
+                    max-width: 90%;
+                    margin: auto;
+                    padding: 64px 116px 79px 120px;
+                    background: linear-gradient(208.18deg, #67C3F3 9.05%, #5A98F2 76.74%);
+                    border-radius: 24px;
+                    position: relative;
+                    margin-bottom: 278px;
+
+                    h2{
+                        @include font($weight: 700, $size: 36px, $line: 48px,$color: #FFFFFF);                      
+                        text-align: center;
+                    }
+                    .separator{
+                        @include separator($w, $h, $back: #FFFFFF, $border-rad: 4px, $margin: 25px auto 66px);
+                        @include for-tablet-landscape-up{
+                            margin: 15px auto 20px;
+                        }                     
+                    }
+
+                    .customer{
+                        @include flex($display, $just, $align);
+                        gap: 30px;
+                        @include for-tablet-landscape-up{
+                            flex-wrap: wrap;
+                        }
+                        .customer-image{
+                            @include flex($display, $just, $align);
+                            gap: 29px;
+                            @include for-phone-only{
+                                flex-wrap: wrap;
+                                text-align: center;
+                                justify-content: center;
+                            }
+                            
+                            span{
+                                
+                                h3{
+                                    @include font($weight: 700, $size: 22px, $line: 48px,$color: #FFFFFF);                              
+                                }
+                                p{
+                                    @include font($weight: 400, $size: 18px, $line: 48px,$color:rgba(255, 255, 255, 0.85));                                 
+                                }
+                            }
+                        }
+                        .text-feedback{
+                            width: 45%;
+                            padding-right: 28px;
+                            @include font($weight: 400, $size: 19px, $line: 30px,$color:rgba(255, 255, 255, 0.9));
+                            @include for-tablet-landscape-up{
+                                text-align: justify;
+                                width: 90%;
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                    .square-1{
+                        position: absolute;
+                        top: -5%;
+                        right: -5%;
+                        @include for-tablet-landscape-up{
+                            display: none;
+                        }
+                    }
+                    .square-2{
+                        position: absolute;
+                        left: -7%;
+                        bottom: 10%;
+                        @include for-tablet-landscape-up{
+                            display: none;
+                        }
+                    }
+                }
+
+                .wrapper-article{
+                    padding: 0 49px;
+                    margin-bottom: 201px;
+                    width: 100%;
+                    h2{
+                        @include font($weight: 700, $size: 36px, $line: 56px,$color:#000000);                 
+                        text-align: center;
+                    }
+                    .separator{
+                        @include separator($w, $h, $back, $border-rad, $margin: 32px auto 79px);                      
+                    }
+                    
+                    .flex-articles{
+                        @include flex($display, $just, $align: flex-start);
+                        margin-bottom: 69px;
+                        position: relative;
+                        z-index: 2;
+                        @include for-tablet-landscape-up{
+                            flex-wrap: wrap;
+                        }
+                        .article-item{
+                            max-width: calc(33% - 20px);
+                            max-height: 50%;
+                            background: #FFFFFF;
+                            box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+                            border-radius: 20px;
+                            z-index: 2;
+                            @include for-tablet-landscape-up{
+                                max-width: calc(50% - 20px);
+                                max-height: max-content;
+                                margin-bottom: 20px;
+                            }
+                            @include for-phone-only{
+                                max-width: 100%;
+                                max-height: max-content;
+                                margin-bottom: 20px;
+                            }
+
+                            .text-article{
+                                margin: 0 51px 31px 33px;
+                            }
+                            .image-article{
+                                margin-bottom: 24px;
+                                width: 100%;
+                            }
+                            h3{
+                                @include font($weight: 700, $size: 21px, $line: 32px,$color:#000000);                       
+                            }
+                            p{
+                                margin: 12px 0 25px;
+                                @include font($weight: 300, $size: 16px, $line: 28px,$color:#7D7987);          
+                            }
+                            .read-more{
+                                text-decoration: none;
+                                @include font($weight: 600, $size: 17px, $line: 28px,$color:#4089ED);                             position: relative;
+                                img{
+                                    transform: rotate(-90deg);
+                                    position: absolute;
+                                    top: 3px;
+                                    right: -20px;
+                                }
+                            }
+                        }
+                        
+                        .cloud{
+                            position: absolute;
+                            bottom: -30%;
+                            right: -18%;
+                            z-index: 1;
+                            @include for-tablet-landscape-up{
+                                display: none;
+                            }
+                        }
+                        .square-3{
+                            position: absolute;
+                            top: -10%;
+                            left: -5%;
+                            z-index: 1;
+                            @include for-tablet-landscape-up{
+                                display: none;
+                            }
+                        }
+                        
+                    }
+                    .view-all{
+                        margin: 0 42%;
+                        text-decoration: none;
+                        @include font($weight: 700, $size: 18px, $line: 60px,$color:#458FF6);                        
+                        border: 1.4px solid #458FF6;
+                        border-radius: 55px;
+                        padding: 20px 50px;
+                        @include for-tablet-landscape-up{
+                            margin: calc(38%);
+                            padding: 15px 30px;
+                        }
+                        @include for-phone-only{
+                            margin: 0;
+                            padding: 7px 15px;
+                        }
+                    }
+                }
+            }
+        }
+
+        footer{
+            width: 100%;
+            background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+            position: relative;
+            z-index: 1;
+
+            .wrapper-footer{
+                max-width: 1218px;
+                margin: auto;
+                @include font($weight: 300, $size: 18px, $line: 28px,$color: #FFFFFF);               
+                padding: 112px 0 120px;
+                @include flex($display: flex, $just: flex-start, $align: flex-start);
+                gap: 145px;
+                @include for-tablet-landscape-up{
+                    flex-wrap: wrap;
+                    gap: 50px;
+                    text-align: center;
+                }
+                .logo-info{
+                    width: 55%;
+                    .logo{
+                        margin-bottom: 26px;
+                    }
+                    .text{
+                        max-width: 360px;
+                        padding-bottom: 11px;
+                        @include font($weight: 300, $size:18px, $line: 28px,$color:#FFFFFF);
+                        @include for-tablet-landscape-up{
+                            max-width: 100%;
+                        }                        
+                    }
+                    .rights{
+                        @include font($weight: 300, $size: 16px, $line: 28px,$color:#FFFFFF);                        
+                    }
+                }
+
+                .links-table{
+                    .row{
+                        a{
+                            @include font($weight: 300, $size: 18px, $line: 38px,$color:#FFFFFF);                           
+                            text-decoration: none;
+                        }
+                    }
+                    .heading{
+                        @include font($weight: 700, $size: 20px, $line: 60px,$color: #FFFFFF);                         
+                    }   
+                }
+            }
+            .square-4{
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+                z-index: 2;
+                @include for-phone-only{
+                    display: none;
+                }
+            }
+        }
+    }
+}
